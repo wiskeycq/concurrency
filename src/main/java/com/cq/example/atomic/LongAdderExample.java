@@ -1,34 +1,34 @@
+package com.cq.example.atomic;
 
-package com.cq;
-
-import com.cq.annoations.NotThreadSafe;
+import com.cq.annoations.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.atomic.LongAdder;
 
 /**
  * @Auther: caoqsq
  * @Date: 2018/5/3 15:06
- * @Description:
+ * @Description: LongAdder性能比AtomicLong高，也有其缺点
  */
-
 @Slf4j
-@NotThreadSafe
-public class ConcurrencyTest {
+@ThreadSafe
+public class LongAdderExample {
     //请求总数
     public static int clientTotal = 5000;
     //同时并发的线程数
     public static int threadTotal = 200;
     //计数常量
-    public static int count = 0;
+    public static LongAdder count = new LongAdder();
 
     public static void main(String[] args) throws Exception {
         ExecutorService executorService = Executors.newCachedThreadPool();
-        Semaphore semaphore = new Semaphore(threadTotal);
-        CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
+        final Semaphore semaphore = new Semaphore(threadTotal);
+        final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
         for (int i=0;i<clientTotal;i++) {
             executorService.execute(()->{
                 try {
@@ -52,6 +52,7 @@ public class ConcurrencyTest {
     }
 
     public static void add() {
-        count++;
+        count.increment();//先增加再获取值
+        //count.getAndIncrement();//先获取值再增加
     }
 }
