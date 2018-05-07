@@ -1,6 +1,1 @@
-/**
- * @Auther: caoqsq
- * @Date: 2018/5/4 10:17
- * @Description:
- */
-package com.cq.example.atomic;
+//原子性:同一时刻只有一个线程对其进行操作
