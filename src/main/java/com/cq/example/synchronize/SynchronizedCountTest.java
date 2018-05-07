@@ -1,7 +1,7 @@
 
-package com.cq;
+package com.cq.example.synchronize;
 
-import com.cq.annoations.NotThreadSafe;
+import com.cq.annoations.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.CountDownLatch;
@@ -16,8 +16,8 @@ import java.util.concurrent.Semaphore;
  */
 
 @Slf4j
-@NotThreadSafe
-public class ConcurrencyTest {
+@ThreadSafe
+public class SynchronizedCountTest {
     //请求总数
     public static int clientTotal = 5000;
     //同时并发的线程数
@@ -51,7 +51,7 @@ public class ConcurrencyTest {
         log.info("count:{}",count);
     }
 
-    public static void add() {
+    public static synchronized void add() {
         count++;
     }
 }

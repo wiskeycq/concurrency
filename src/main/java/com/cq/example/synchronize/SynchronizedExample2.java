@@ -8,14 +8,14 @@ import java.util.concurrent.Executors;
 /**
  * @Auther: caoqsq
  * @Date: 2018/5/4 10:48
- * @Description: 演示synchronized修饰代码块和方法
+ * @Description: 演示synchronized修饰类和静态方法
  */
 @Slf4j
-public class SynchronizedExample1 {
+public class SynchronizedExample2 {
 
     public static void main(String[] args) {
-        SynchronizedExample1 example1 = new SynchronizedExample1();
-        SynchronizedExample1 example2 = new SynchronizedExample1();
+        SynchronizedExample2 example1 = new SynchronizedExample2();
+        SynchronizedExample2 example2 = new SynchronizedExample2();
         ExecutorService executorService = Executors.newCachedThreadPool();
         executorService.execute(()->{
             example1.test1(1);
@@ -28,18 +28,17 @@ public class SynchronizedExample1 {
         });
     }
 
-    //synchronized关键字修饰代码块，作用于调用的对象
-    private void test1(int j) {
-        synchronized (this) {
+    //synchronized关键字修饰一个类，作用于所有对象
+    private static void test1(int j) {
+        synchronized (SynchronizedExample2.class) {
             for (int i=0;i<10;i++) {
                 log.info("test1 - {} - {}",j,i);
             }
         }
-        log.info("test1 fei");
     }
 
-    //synchronized关键字修饰方法，作用于调用的对象
-    private synchronized void test2(int j) {
+    //synchronized关键字修饰静态方法，作用于所有对象
+    private synchronized static void test2(int j) {
         for (int i=0;i<10;i++) {
             log.info("test2 - {} - {}",j,i);
         }
