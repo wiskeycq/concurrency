@@ -1,4 +1,4 @@
-package com.cq.example.test;
+package com.cq.example.testCode;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.Files;
