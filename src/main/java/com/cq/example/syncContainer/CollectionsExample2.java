@@ -1,9 +1,5 @@
 package com.cq.example.syncContainer;
 
-<<<<<<< HEAD
-import com.cq.annoations.NotThreadSafe;
-=======
->>>>>>> 1eb95ccdc44755746a566b3a6d8e3e3f4c4fa577
 import com.cq.annoations.ThreadSafe;
 import com.google.common.collect.Sets;
 import lombok.extern.slf4j.Slf4j;
