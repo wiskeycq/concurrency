@@ -23,6 +23,7 @@ public class VectorExample2 {
                 vector.add(i);
             }
 
+            //匿名内部类的写法，类似于myThread 类继承与 Thread，并重写了Thread里面的run 方法
             Thread thread1 = new Thread() {
                 public void run() {
                     for (int i = 0; i < vector.size(); i++) {
