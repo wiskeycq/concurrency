@@ -28,9 +28,16 @@ public class JoinCountDownLatchTest {
                 log.info("thread2");
             }
         });
+
+        // java8 lambda表达式的写法
+        Thread thread3 = new Thread(()->{
+            log.info("thread3");
+        });
         thread1.start();
         thread1.join();
         thread2.start();
         thread2.join();
+        thread3.start();
+        thread3.join();
     }
 }
