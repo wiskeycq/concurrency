@@ -1,6 +1,5 @@
-package com.cq.tree;
+package com.cq.interview.algorithm;
 import java.util.Stack;
-import java.util.HashMap;
 
 /**
  * @Auther: caoqsq
@@ -16,7 +15,7 @@ public class BinTree {
         date = c;
     }
 
-    // 先序遍历递归
+    // 先序遍历递归(根左右)
     public static void preOrder(BinTree t) {
         if (t == null) {
             return;
@@ -26,7 +25,7 @@ public class BinTree {
         preOrder(t.rchild);
     }
 
-    // 中序遍历递归
+    // 中序遍历递归（左根右）
     public static void InOrder(BinTree t) {
         if (t == null) {
             return;
@@ -36,7 +35,7 @@ public class BinTree {
         InOrder(t.rchild);
     }
 
-    // 后序遍历递归
+    // 后序遍历递归（左右根）
     public static void PostOrder(BinTree t) {
         if (t == null) {
             return;
