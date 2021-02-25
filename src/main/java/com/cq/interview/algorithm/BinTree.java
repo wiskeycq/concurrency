@@ -121,7 +121,7 @@ public class BinTree {
         b2.lchild = b4;
         b2.rchild = b5;
 
-        BinTree.preOrder(b1);
+        BinTree.PostOrder(b1);
         System.out.println();
        /* BinTree.preOrder2(b1);
         System.out.println();

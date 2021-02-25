@@ -44,4 +44,8 @@ public class VectorExample2 {
             thread2.start();
         }
     }
+
+    class myThread extends Thread {
+
+    }
 }

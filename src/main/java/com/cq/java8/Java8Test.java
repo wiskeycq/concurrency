@@ -2,8 +2,15 @@ package com.cq.java8;
 
 
 
+import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -23,6 +30,7 @@ public class Java8Test {
     }
     public static void iterTest2() {
         List<String> languages = Arrays.asList("java","scala","python");
+        //languages.add("C");
         //after java8
        languages.forEach(x -> System.out.println(x));
        //languages.forEach(System.out::println);
@@ -37,7 +45,8 @@ public class Java8Test {
     // reduce与map一样，也是函数式编程里最重要的几个方法之一。。。map的作用是将一个对象变为另外一个，而reduce实现的则是将所有值合并为一个
     public static void mapReduceTest() {
         List<Double> cost = Arrays.asList(10.0, 20.0,30.0);
-        double allCost = cost.stream().map(x -> x+x*0.05).reduce((sum,x) -> sum + x).get();
+        //double allCost = cost.stream().map(x -> x+x*0.05).reduce((sum,x) -> sum + x).get();
+        double allCost = cost.stream().map(x -> x+x*0.05).reduce((sum,x) -> sum).get();
         System.out.println(allCost);
     }
 
@@ -52,19 +61,27 @@ public class Java8Test {
         languages.stream().filter(x -> condition.test(x)).forEach(x -> System.out.println(x + " "));
     }
 
-    public static void main(String[] args) {
-        //mapReduceTest();
-        //filterTest();
-        List<String> languages = Arrays.asList("Java","Python","scala","Shell","R");
-        System.out.println("Language starts with J: ");
-        filterTest(languages,x -> x.startsWith("J"));
-        System.out.println("\nLanguage ends with a: ");
-        filterTest(languages,x -> x.endsWith("a"));
-        System.out.println("\nAll languages: ");
-        filterTest(languages,x -> true);
-        System.out.println("\nNo languages: ");
-        filterTest(languages,x -> false);
-        System.out.println("\nLanguage length bigger three: ");
-        filterTest(languages,x -> x.length() > 4);
+    public static void main(String[] args) throws Exception{
+        long statTime = System.currentTimeMillis();
+
+        ExecutorService e = Executors.newFixedThreadPool(4);
+
+        e.execute(new Runnable() {
+            @Override
+            public void run() {
+
+                List<String> list = new LinkedList<String>();
+                for (int i = 0; i<1000000; i++) {
+                    list.add("cq");
+                }
+                for (int i=0; i<list.size(); i++) {
+                    //Thread.sleep(100);
+                    list.get(i);
+                }
+            }
+        });
+        long endTime = System.currentTimeMillis();
+        System.out.println("cost time:"+(endTime-statTime));
     }
 }
+

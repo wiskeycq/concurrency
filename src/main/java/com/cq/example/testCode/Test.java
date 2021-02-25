@@ -22,4 +22,11 @@ public class Test {
         }
     }
 
+    ThreadLocal smm = new ThreadLocal() {
+        @Override
+        protected Object initialValue() {
+            return super.initialValue();
+        }
+    };
+
 }

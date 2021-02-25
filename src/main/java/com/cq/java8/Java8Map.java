@@ -1,9 +1,18 @@
 package com.cq.java8;
 
 
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+
+import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * @Auther: caoqsq
@@ -92,6 +101,47 @@ public class Java8Map {
     }
 
     public static void main(String[] args) {
-        test5();
+        //System.out.println(Optional.ofNullable(1).orElse(2));
+//        System.out.println(0 << 32);
+//        System.out.println(Objects.equals(1, null));
+//        System.out.println((String) null);
+
+//        String mm = "1,2,3,4";
+//
+//        List<String> ss = Arrays.asList(mm.split(","))
+//                .stream().map(s -> s.trim()).collect(Collectors.toList());
+//        System.out.println(ss);
+//
+//        Map<String, String> map = Maps.newHashMap();
+//       // System.out.println(MapUt);
+//        System.out.println(Objects.equals(null, null));
+//
+////        boolean a=null;
+////        if (a.equals(true)) {
+////            System.out.println(1);
+////        }
+////        if (a.equals(false)) {
+////            System.out.println(2);
+////        }
+//
+//        Integer a = 604;
+//        Integer b = 603;
+//        if (b.compareTo(a) >= 0) {
+//            System.out.println("超距");
+//        }
+//
+//        long mm1 = 0;
+//        System.out.println(BigDecimal.valueOf(mm1));
+//        List<String> list = Lists.newArrayList();
+//        list.add(null);
+//        System.out.println(list);
+//        //System.out.println(Lists.newArrayList(null));
+//        //System.out.println(Arrays.asList(null));
+//
+//        System.out.println(Optional.ofNullable("0.0").map(BigDecimal::new).orElse(null));
+//        System.out.println("1".equals(null));
+        Integer a = 1;
+        System.out.println(a.equals(null));
+        System.out.println(Objects.equals(a, null));
     }
 }
