@@ -36,6 +36,8 @@ public class CyclicBarrierExample2 {
                 }
             });
         }
+
+        executorService.shutdown();
     }
 
     private static void race(int theadNum) throws Exception {

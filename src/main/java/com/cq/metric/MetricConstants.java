@@ -21,4 +21,6 @@ public interface MetricConstants {
 	String time_suffix = "_time";
 	//成功埋点后缀
 	String success_suffix = "_success";
+
+
 }

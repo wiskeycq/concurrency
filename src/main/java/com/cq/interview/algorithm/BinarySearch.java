@@ -1,5 +1,10 @@
 package com.cq.interview.algorithm;
 
+import org.springframework.util.CollectionUtils;
+
+import java.util.Collections;
+import java.util.stream.Collectors;
+
 /**
  * @Auther: caoqsq
  * @Date: 2018/8/15 10:54
@@ -22,6 +27,7 @@ public class BinarySearch {
                 high = middle-1;
             } else {
                 low = middle +1;
+                Collections.sort(null);
             }
         }
         return -1;

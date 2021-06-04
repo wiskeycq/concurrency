@@ -34,10 +34,10 @@ public class JoinCountDownLatchTest {
             log.info("thread3");
         });
         thread1.start();
-        thread1.join();
+        //thread1.join();
         thread2.start();
-        thread2.join();
+        //thread2.join();
         thread3.start();
-        thread3.join();
+        //thread3.join();
     }
 }

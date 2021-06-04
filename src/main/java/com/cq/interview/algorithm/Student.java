@@ -11,40 +11,48 @@ import java.util.List;
  * @Description:
  */
 public class Student {
-    private int age;
-    private String name;
 
-    public int getAge() {
-        return age;
-    }
-    public void setAge(int age) {
-        this.age = age;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public Student(int age, String name) {
-        super();
-        this.age = age;
-        this.name = name;
-    }
+    /**
+     * 动态规划
+     * @param arr
+     * @param n
+     * @param
+     * @return
+     */
+    public int maxSumNew(int arr[][],int n){
 
-    public static void main(String[] args) throws Exception{
-//        for(int i=0;i<3;i++) {
-//            System.out.println("i====="+i);
-//            for (int j=1;j<4;j++) {
-//                if (i==j) {
-//                    throw new Exception("cuowu");
-//                }
-//            }
-//        }
-        List<String> actualList = Lists.newArrayList("1","2","3");
-        ArrayList<String> expectList = Lists.newArrayList("1","2","3","4");
-        if (actualList.containsAll(expectList)) {
-            System.out.println(1);
+        if(arr==null){
+            return 0;
         }
+        int[][] max = new int[n][n];
+        for(int i = n-1; i >=0; i--){
+            for(int j = 0; j <= i; j++){
+                if(i==n-1){
+                    max[n-1][j] = arr[n-1][j];
+                }else{
+                    max[i][j] = Math.max(max[i+1][j],max[i+1][j+1]) + arr[i][j];
+                }
+            }
+        }
+        return max[0][0];
     }
+
+    public void test2(){
+        int[][] arr={
+                {7,0,0,0,0},
+                {3,8,0,0,0},
+                {8,1,0,0,0},
+                {2,7,4,4,0},
+                {4,5,2,6,5}
+        };
+
+        int max = maxSumNew(arr,2);
+        System.out.println(max);
+    }
+
+    public static void main(String[] args) {
+        Student student = new Student();
+        student.test2();
+    }
+
 }

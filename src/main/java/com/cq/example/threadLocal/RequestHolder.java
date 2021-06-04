@@ -22,7 +22,19 @@ public class RequestHolder {
     }
 
     public static void main(String[] args) {
-        Long ss = RequestHolder.getId();
-        System.out.println(ss);
+////        Long ss = RequestHolder.getId();
+//        Thread thread = new Thread();
+//        thread.start();
+//        thread.run();
+//        //Thread.sleep(100);
+//        System.out.println(ss);
+        Integer a=3;
+        if (a == 1) {
+            System.out.println("111");
+        } else if (a<=1) {
+            System.out.println("222");
+        } else {
+            System.out.println("333");
+        }
     }
 }

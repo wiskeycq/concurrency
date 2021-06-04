@@ -47,6 +47,6 @@ public class ArrayStringsAreEqual {
 //        String[] word2 = {"ab", "c"};
 //        System.out.println(arrayStringsAreEqual(word1, word2));
 
-        System.out.println(reverseLeftWords("abcdef",2));
+        System.out.println(reverseLeftWords("abcdef",1));
     }
 }

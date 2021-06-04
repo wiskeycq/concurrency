@@ -4,7 +4,8 @@ package com.cq.interview.algorithm.array;
  * @author caoqiang
  * @date 2020/12/18下午3:05
  */
-public class Rotate {
+public class
+Rotate {
     /**
      * 暴力发，最后一个跟第一个交换为止，再跟第二个交换位置，直到便利所有数组
      * @param nums

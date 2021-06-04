@@ -36,7 +36,7 @@ public class CountDownLatchExample2 {
             });
         }
 
-        countDownLatch.await(10,TimeUnit.MILLISECONDS);//10毫秒后执行下面的任务
+        countDownLatch.await(1,TimeUnit.MILLISECONDS);//10毫秒后执行下面的任务
         log.info("finish");
         executorService.shutdown();//执行到此句并不是将所有的线程都销毁掉，而是等已分配的线程都执行完，才把线程池销毁掉
 

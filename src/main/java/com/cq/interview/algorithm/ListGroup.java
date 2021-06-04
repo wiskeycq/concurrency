@@ -8,30 +8,30 @@ import java.util.*;
  * @Description: list对象根据某个字段分组输出
  */
 public class ListGroup {
-    public static void main(String[] args) {
-        List<Student> list = new ArrayList<Student>();
-        list.add(new Student(17,"aa"));
-        list.add(new Student(15,"bb"));
-        list.add(new Student(16,"cc"));
-        list.add(new Student(15,"dd"));
-        list.add(new Student(16,"ee"));
-        list.add(new Student(17,"ff"));
-
-        Map<Integer, List<Student>> map = new HashMap<>();
-        for (Student stu : list) {
-            List<Student> tempList = map.get(stu.getAge());
-            if (tempList == null) {
-                tempList = new ArrayList<>();
-                tempList.add(stu);
-                map.put(stu.getAge(), tempList);
-            } else {
-                tempList.add(stu);
-            }
-        }
-
-        for(Integer age : map.keySet()){
-            System.out.println(map.get(age));
-        }
+//    public static void main(String[] args) {
+//        List<Student> list = new ArrayList<Student>();
+//        list.add(new Student(17,"aa"));
+//        list.add(new Student(15,"bb"));
+//        list.add(new Student(16,"cc"));
+//        list.add(new Student(15,"dd"));
+//        list.add(new Student(16,"ee"));
+//        list.add(new Student(17,"ff"));
+//
+//        Map<Integer, List<Student>> map = new HashMap<>();
+//        for (Student stu : list) {
+//            List<Student> tempList = map.get(stu.getAge());
+//            if (tempList == null) {
+//                tempList = new ArrayList<>();
+//                tempList.add(stu);
+//                map.put(stu.getAge(), tempList);
+//            } else {
+//                tempList.add(stu);
+//            }
+//        }
+//
+//        for(Integer age : map.keySet()){
+//            System.out.println(map.get(age));
+//        }
        /* List<List<Student>> list2 = dividerList(list, new Comparator<Student>() {
             @Override
             public int compare(Student o1, Student o2) {
@@ -47,7 +47,7 @@ public class ListGroup {
             System.out.println("=========================================");
         }*/
 
-    }
+    //}
 
     /**
      * 创建比较器

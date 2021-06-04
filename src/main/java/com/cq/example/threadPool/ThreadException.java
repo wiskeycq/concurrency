@@ -20,6 +20,7 @@ public class ThreadException {
         try {
             Future task = executor.submit(() -> run("submit方法"));
             task.get();
+            //executor.execute(run(););
         } catch (Exception e) {
             System.out.println("线程池执行异常");
         }

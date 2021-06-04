@@ -14,7 +14,7 @@ import java.util.concurrent.Executors;
 @Slf4j
 public class CountDownLatchExample1 {
 
-    private final static int threadCount = 200;
+    private final static int threadCount = 2000;
 
     public static void main(String[] args) throws InterruptedException {
         //创建一个线程池
