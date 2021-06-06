@@ -1,5 +1,7 @@
 package com.cq.interview.algorithm;
 
+import com.alibaba.fastjson.JSON;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -57,6 +59,8 @@ public class RemoveRepeatChar {
 
     public static void main(String[] args) {
         String str = removeRepeatChar("adc ddb");
+        Map<String,Integer> map = pressChar("adc ddb");
+        System.out.println(JSON.toJSONString(map));
         System.out.println(str);
     }
 }
